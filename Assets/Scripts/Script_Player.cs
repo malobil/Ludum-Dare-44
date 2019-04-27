@@ -6,6 +6,12 @@ public class Script_Player : MonoBehaviour
 {
     public static Script_Player Instance { get; private set; }
 
+    
+    [SerializeField] private float f_acceleration;
+    private float f_current_speed;
+    private float f_max_speed;
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -18,15 +24,26 @@ public class Script_Player : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        Accelerate();
+
+        if(Input.GetKeyDown("e"))
+        {
+
+        }
+    }
+
+    public void Accelerate()
+    {
+        if(f_current_speed < f_max_speed)
+        {
+
+        }
     }
 }
