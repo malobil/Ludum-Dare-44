@@ -20581,7 +20581,7 @@ GameObject:
   - component: {fileID: 5823993828596195387}
   m_Layer: 0
   m_Name: ColliderFront
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20672,7 +20672,7 @@ GameObject:
   - component: {fileID: 5823993828596195379}
   m_Layer: 0
   m_Name: ColliderBody
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20939,7 +20939,7 @@ GameObject:
   - component: {fileID: 5823993828596195383}
   m_Layer: 0
   m_Name: ColliderBottom
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
