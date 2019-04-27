@@ -11,6 +11,10 @@ public class Script_Player : MonoBehaviour
     private float f_current_speed;
     private float f_max_speed;
 
+    [Header("Switch")]
+
+    public bool b_want_to_switch;
+
 
     private void Awake()
     {
@@ -35,7 +39,7 @@ public class Script_Player : MonoBehaviour
 
         if(Input.GetKeyDown("e"))
         {
-
+            WantToSwitch();
         }
     }
 
@@ -45,5 +49,10 @@ public class Script_Player : MonoBehaviour
         {
 
         }
+    }
+
+    private void WantToSwitch()
+    {
+
     }
 }
