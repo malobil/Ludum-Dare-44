@@ -10,9 +10,8 @@ public class Script_LapManager : MonoBehaviour
         {
             if (other.transform.root.GetComponent<Script_Vehicle>().ReturnCanLap())
             {
-
+                Script_UIManager.Instance.UpdateLap(other.transform.root.GetComponent<Script_Vehicle>().ReturnTeamCar());
             }
-            other.transform.root.GetComponent<Script_Vehicle>().CanLapTrue();
         }
     }
 }
