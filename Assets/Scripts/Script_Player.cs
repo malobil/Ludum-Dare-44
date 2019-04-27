@@ -47,23 +47,25 @@ void Start()
 
     }
 
+    /*void Update()
+    {
+        
+    }*/
+
     void Update()
     {
         if (b_want_to_switch)
         {
             if (f_switch_current_timer > 0)
             {
-                f_switch_current_timer = -Time.deltaTime;
+                f_switch_current_timer -= Time.deltaTime;
             }
             else if (f_switch_current_timer <= 0)
             {
                 b_want_to_switch = false; ;
             }
         }
-    }
 
-    void FixedUpdate()
-    {
         float h = 0f;
         float v = 0f;
         float handbrake = 0f;
@@ -197,6 +199,7 @@ void Start()
         f_switch_current_timer = m_setTimer;
         b_want_to_switch = true;
         transform.root.GetComponent<Script_Vehicle>().VerifySwitchState();
+        Debug.Log("I one two switch");
     }
 
     public bool ReturnSwitchBool()
