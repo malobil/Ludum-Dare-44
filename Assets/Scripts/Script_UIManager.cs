@@ -13,6 +13,7 @@ public class Script_UIManager : MonoBehaviour
 
     public Text m_LapP1;
     public Text m_LapP2;
+    public Text WinText;
 
     private int P1Lap;
     private int P2Lap;
@@ -51,7 +52,7 @@ public class Script_UIManager : MonoBehaviour
     }
 
     public void UnShowFinish()
-    {
+    {      
         m_endGameMenu.SetActive(false);
     }
 
@@ -85,6 +86,7 @@ public class Script_UIManager : MonoBehaviour
             if (P1Lap >= 3)
             {
                 ShowFinish();
+                WinText.text = "Team 1 Wins";
             }
         }
 
@@ -96,6 +98,7 @@ public class Script_UIManager : MonoBehaviour
             if (P2Lap >= 3)
             {
                 ShowFinish();
+                WinText.text = "Team 2 Wins";
             }
         }
     }
