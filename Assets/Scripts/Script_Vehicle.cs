@@ -36,6 +36,10 @@ public class Script_Vehicle : MonoBehaviour
         }
         m_ActualDriver.BecomeDriver();
         m_ActualPassenger.BecomePassenger();
+
+        m_ActualDriver.transform.position = l_transform_switch_target[0].position;
+        m_ActualPassenger.transform.position = l_transform_switch_target[1].position;
+
     }
 
     void Update()
@@ -61,7 +65,21 @@ public class Script_Vehicle : MonoBehaviour
 
     public void SwitchPlayer()
     {
-        
+        if(l_player[0] == m_ActualDriver)
+        {
+            l_player[0] = m_ActualPassenger;
+            l_player[1] = m_ActualDriver;
+        }
+        else
+        {
+            l_player[0] = m_ActualDriver;
+            l_player[1] = m_ActualPassenger;
+        }
+
+        m_ActualDriver.transform.position = l_transform_switch_target[0].position;
+        m_ActualPassenger.transform.position = l_transform_switch_target[1].position;
+        m_ActualDriver.BecomeDriver();
+        m_ActualPassenger.BecomePassenger();
     }
 
     public void AddLifeTodriver(float Life)
