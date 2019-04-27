@@ -8,6 +8,9 @@ public class Script_Player : MonoBehaviour
 {
     [SerializeField] private float m_MaxHealth = 100f;
     [SerializeField] private float m_usingLife = 1f;
+    [SerializeField] private float m_usingLife_cd = 1f;
+
+    private float m_current_usingLife_cd = 0f;
     private float f_current_speed;
     private float f_max_speed;
     private float f_CurrentHealth = 0f;
@@ -33,9 +36,13 @@ public class Script_Player : MonoBehaviour
 
     private CarController m_Car; // the car controller we want to use
 
+    private float acceleration = 0f;
+    private float turn = 0f;
+    private float drift = 0f;
+
 void Start()
     {
-        m_Car = transform.root.GetComponent<CarController>();
+
 
         if (Input.GetJoystickNames().Length > i_player_number - 1)
         {
@@ -46,11 +53,6 @@ void Start()
         f_CurrentHealth = 20f;
 
     }
-
-    /*void Update()
-    {
-        
-    }*/
 
     void Update()
     {
@@ -66,9 +68,14 @@ void Start()
             }
         }
 
-        float h = 0f;
-        float v = 0f;
-        float handbrake = 0f;
+        if(m_current_usingLife_cd > 0)
+        {
+            m_current_usingLife_cd -= Time.deltaTime;
+        }
+
+        turn = 0f;
+        acceleration = 0f;
+        drift = 0f;
        
 
         if (s_controller_type != "")
@@ -91,9 +98,8 @@ void Start()
                         decelerateInput = 0f;
                     }
 
-                    v = accelerateInput - decelerateInput;
-                    h = Input.GetAxis("Horizontal_P" + s_player_number);
-                    m_Car.Move(h, v, v, handbrake);
+                    acceleration = accelerateInput - decelerateInput;
+                    turn = Input.GetAxis("Horizontal_P" + s_player_number);
                 }
               
 
@@ -150,9 +156,8 @@ void Start()
                         decelerateInput = 0f;
                     }
 
-                    v = accelerateInput - decelerateInput;
-                    h = Input.GetAxis("Horizontal_P" + s_player_number);
-                    m_Car.Move(h, v, v, handbrake);
+                    acceleration = accelerateInput - decelerateInput;
+                    turn = Input.GetAxis("Horizontal_P" + s_player_number);
                 }
 
 
@@ -209,7 +214,12 @@ void Start()
 
     private void UsingHealth()
     {
-        f_CurrentHealth -= m_usingLife;
+        if(m_current_usingLife_cd <= 0)
+        {
+            f_CurrentHealth -= m_usingLife;
+            transform.root.GetComponent<Script_Vehicle>().AddSpeedMultiple();
+        }
+        
     }
 
     public void AddLife(float LifeAdded)
@@ -230,5 +240,10 @@ void Start()
     {
         m_isDriver = false;
         b_want_to_switch = false;
+    }
+
+    public Vector3 GetCarMoveVariable()
+    {
+        return new Vector3(acceleration, turn, drift);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Vehicles.Car;
 
 public class Script_Vehicle : MonoBehaviour
 {
@@ -14,8 +15,16 @@ public class Script_Vehicle : MonoBehaviour
 
     [SerializeField] private float f_add_heal_per_second;
 
+    [SerializeField] private float f_speed_add_by_life = 0.1f;
+    [SerializeField] private float f_max_speed_add_by_life = 1f;
+    private float f_speed_multiple = 1f;
+    private CarController m_Car; // the car controller we want to use
+
+    private bool b_can_lap = false;
+
     void Start()
     {
+        m_Car = transform.root.GetComponent<CarController>();
         int i = Random.Range(0, 2);
         if (i == 0)
         {
@@ -36,6 +45,11 @@ public class Script_Vehicle : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        m_Car.Move(m_ActualDriver.GetCarMoveVariable().y, m_ActualDriver.GetCarMoveVariable().x * f_speed_multiple, m_ActualDriver.GetCarMoveVariable().x, m_ActualDriver.GetCarMoveVariable().z);
+    }
+
     public void VerifySwitchState()
     {
         if(m_ActualDriver.GetComponent<Script_Player>().ReturnSwitchBool() && m_ActualPassenger.GetComponent<Script_Player>().ReturnSwitchBool())
@@ -47,6 +61,7 @@ public class Script_Vehicle : MonoBehaviour
     public void SwitchPlayer()
     {
         Debug.Log("I switch");
+
         Script_Player passenger = m_ActualPassenger;
         Script_Player driver = m_ActualDriver;
 
@@ -64,5 +79,26 @@ public class Script_Vehicle : MonoBehaviour
     {
         if (m_ActualDriver)
             m_ActualDriver.AddLife(Life);
+    }
+
+    public void AddSpeedMultiple()
+    {
+        f_speed_multiple += f_speed_add_by_life;
+        Debug.Log("Got " + f_speed_multiple);
+    }
+
+    public void CanLapTrue()
+    {
+        b_can_lap = true;
+    }
+
+    public void CanLapFalse()
+    {
+        b_can_lap = false;
+    }
+
+    public bool ReturnCanLap()
+    {
+        return b_can_lap;
     }
 }
