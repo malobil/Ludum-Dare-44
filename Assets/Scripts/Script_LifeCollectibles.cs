@@ -11,6 +11,7 @@ public class Script_LifeCollectibles : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.transform.root.GetComponent<Script_Vehicle>().AddLifeTodriver(m_AmmountOfHeal);
+            transform.GetComponentInParent<Script_LifeCollectibles_Spawn>().ResetCD();
             Destroy(gameObject);
         }
     }
