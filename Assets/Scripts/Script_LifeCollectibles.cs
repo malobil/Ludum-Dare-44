@@ -10,7 +10,6 @@ public class Script_LifeCollectibles : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("trigger");
             other.transform.root.GetComponent<Script_Vehicle>().AddLifeTodriver(m_AmmountOfHeal);
             Destroy(gameObject);
         }

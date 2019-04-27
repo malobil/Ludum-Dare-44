@@ -69,12 +69,10 @@ public class Script_Player : MonoBehaviour
     private void UsingHealth()
     {
         f_CurrentHealth -= m_usingLife;
-        Debug.Log(f_CurrentHealth);
     }
 
     public void AddLife(float LifeAdded)
     {
-        Debug.Log("Life");
         if (LifeAdded + f_CurrentHealth >= m_MaxHealth)
             f_CurrentHealth = m_MaxHealth;
         else

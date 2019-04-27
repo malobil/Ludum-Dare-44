@@ -24,7 +24,6 @@ public class Script_Vehicle : MonoBehaviour
     void Start()
     {
         int i = Random.Range(0, 2);
-        Debug.Log(i);
         if (i == 0)
         {
             m_ActualDriver = l_player[0];
