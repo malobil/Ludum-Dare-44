@@ -1,0 +1,19 @@
+Jeu tps course
+
+4 joueurs écran split en 2
+
+Un conducteur :
+
+- Conduit (Tourne et accélére)
+- Regagne de la vie au fur et à mesure
+**Il peut drifter pour  gagner plus rapidement de la vie**
+
+Un Passager :
+
+- Peut donner de sa vie pour donner un boost temporaire
+- Peut taper à gauche et a droite pour voler de la vie au passager adverse
+
+Les joueur peuvent switch (requiert les deux joueurs qui appel à un switch)
+
+Des objets sur la map et quand récupérés donnent de la vie au conducteur
+
