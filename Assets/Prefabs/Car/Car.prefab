@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHealth: 100
   m_usingLife: 1
-  m_usingLife_cd: 1
+  m_usingLife_cd: 0.1
   i_player_number: 2
   m_setTimer: 3
   m_isDriver: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHealth: 100
   m_usingLife: 1
-  m_usingLife_cd: 1
+  m_usingLife_cd: 0.1
   i_player_number: 1
   m_setTimer: 3
   m_isDriver: 0
@@ -19647,7 +19647,7 @@ MonoBehaviour:
   - {fileID: 1021733070509688238}
   - {fileID: 714045782003989245}
   f_add_heal_per_second: 0
-  f_speed_boost_speed: 150
+  f_speed_boost_speed: 3000
 --- !u!1 &5823993828598201989
 GameObject:
   m_ObjectHideFlags: 0

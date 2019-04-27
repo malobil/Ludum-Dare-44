@@ -35,6 +35,7 @@ public class Script_Player : MonoBehaviour
     bool b_want_to_switch;
 
     private CarController m_Car; // the car controller we want to use
+    private Script_Vehicle m_vehicle ; // the car controller we want to use
 
     private float acceleration = 0f;
     private float turn = 0f;
@@ -42,6 +43,8 @@ public class Script_Player : MonoBehaviour
 
     void Start()
     {
+        m_vehicle = transform.root.GetComponent<Script_Vehicle>();
+
         if (Input.GetJoystickNames().Length > i_player_number - 1)
         {
             s_controller_type = Input.GetJoystickNames()[i_player_number - 1];
@@ -80,9 +83,8 @@ public class Script_Player : MonoBehaviour
         {
             if (s_controller_type == "Wireless Controller")
             {
-                if (m_isDriver)
+                if (m_vehicle.GetCurrentDriver() == this)
                 {
-                    AddLife(Time.deltaTime * 2);
                     float accelerateInput = Input.GetAxis("R2_P" + s_player_number);
                     float decelerateInput = Input.GetAxis("L2_P" + s_player_number);
 
@@ -112,7 +114,7 @@ public class Script_Player : MonoBehaviour
                     Debug.Log("R1_P" + s_player_number);
                 }
 
-                if (!m_isDriver)
+                if (m_vehicle.GetCurrentPassenger() == this)
                 {
                     if (Input.GetAxis("R2_P" + s_player_number) > 0)
                     {
@@ -138,9 +140,8 @@ public class Script_Player : MonoBehaviour
             }
             else
             {
-                if (m_isDriver)
+                if (m_vehicle.GetCurrentDriver() == this)
                 {
-                    AddLife(Time.deltaTime * 2);
                     float accelerateInput = Input.GetAxis("RT_P" + s_player_number);
                     float decelerateInput = Input.GetAxis("LT_P" + s_player_number);
 
@@ -159,7 +160,7 @@ public class Script_Player : MonoBehaviour
                 }
 
 
-                if (!m_isDriver)
+                if (m_vehicle.GetCurrentPassenger() == this)
                 {
                     if (Input.GetAxis("RT_P" + s_player_number) > 0)
                     {

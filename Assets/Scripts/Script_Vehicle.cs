@@ -21,6 +21,8 @@ public class Script_Vehicle : MonoBehaviour
     private bool b_can_lap = false;
     private bool b_can_move = true;
 
+    [SerializeField] private int i_team = 0 ;
+
     void Start()
     {
         m_Car = transform.root.GetComponent<CarController>();
@@ -90,6 +92,17 @@ public class Script_Vehicle : MonoBehaviour
         m_Car.ChangeMaxSpeed(f_speed_boost_speed);
     }
 
+    public Script_Player GetCurrentDriver()
+    {
+        return m_ActualDriver;
+    }
+
+    public Script_Player GetCurrentPassenger()
+    {
+        return m_ActualPassenger;
+    }
+
+
     public void CanLapTrue()
     {
         b_can_lap = true;
@@ -113,5 +126,10 @@ public class Script_Vehicle : MonoBehaviour
     public void CanMoveFalse()
     {
         b_can_move = false;
+    }
+
+    public int ReturnTeamCar()
+    {
+        return i_team;
     }
 }
