@@ -16,7 +16,7 @@ public class Script_Input_Test : MonoBehaviour
         {
             s_controller_type = Input.GetJoystickNames()[i_player_number -1];
             s_player_number = i_player_number.ToString("");
-            Debug.Log(s_controller_type);
+            Debug.Log(s_controller_type + " controller nb " + i_player_number);
            
         }
     }
@@ -70,12 +70,12 @@ public class Script_Input_Test : MonoBehaviour
                     Debug.Log("RT_P" + s_player_number);
                 }
 
-                if (Input.GetAxis("RB_P" + s_player_number) > 0)
+                if (Input.GetButtonDown("RB_P" + s_player_number))
                 {
                     Debug.Log("RB_P" + s_player_number);
                 }
 
-                if (Input.GetAxis("X_P" + s_player_number) > 0)
+                if (Input.GetButtonDown("X_P" + s_player_number))
                 {
                     Debug.Log("X_P" + s_player_number);
                 }
