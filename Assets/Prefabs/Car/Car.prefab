@@ -123,7 +123,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHealth: 100
   m_usingLife: 1
+  m_usingLife_cd: 1
+  i_player_number: 2
   m_setTimer: 3
+  m_isDriver: 0
 --- !u!1 &688247311
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +250,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHealth: 100
   m_usingLife: 1
+  m_usingLife_cd: 1
+  i_player_number: 1
   m_setTimer: 3
+  m_isDriver: 0
 --- !u!1 &1736445953
 GameObject:
   m_ObjectHideFlags: 0
@@ -19577,12 +19583,12 @@ MonoBehaviour:
   m_MaximumSteerAngle: 25
   m_SteerHelper: 0.644
   m_TractionControl: 1
-  m_FullTorqueOverAllWheels: 2500
+  m_FullTorqueOverAllWheels: 1000
   m_ReverseTorque: 500
   m_MaxHandbrakeTorque: 100000000
-  m_Downforce: 100
+  m_Downforce: 0
   m_SpeedType: 0
-  m_Topspeed: 150
+  m_Topspeed: 300
   m_RevRangeBoundary: 1
   m_SlipLimit: 0.3
   m_BrakeTorque: 20000
@@ -19593,7 +19599,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5823993828598201987}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96468c245ae8e0d4f8f1c7a7b8b0542e, type: 3}
   m_Name: 
@@ -19640,8 +19646,8 @@ MonoBehaviour:
   l_transform_switch_target:
   - {fileID: 1021733070509688238}
   - {fileID: 714045782003989245}
-  f_acceleration: 0
   f_add_heal_per_second: 0
+  f_speed_boost_speed: 150
 --- !u!1 &5823993828598201989
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,12 +15,11 @@ public class Script_Vehicle : MonoBehaviour
 
     [SerializeField] private float f_add_heal_per_second;
 
-    [SerializeField] private float f_speed_add_by_life = 0.1f;
-    [SerializeField] private float f_max_speed_add_by_life = 1f;
-    private float f_speed_multiple = 1f;
+    [SerializeField] private float f_speed_boost_speed = 500f;
     private CarController m_Car; // the car controller we want to use
 
     private bool b_can_lap = false;
+    private bool b_can_move = true;
 
     void Start()
     {
@@ -47,7 +46,11 @@ public class Script_Vehicle : MonoBehaviour
 
     private void Update()
     {
-        m_Car.Move(m_ActualDriver.GetCarMoveVariable().y, m_ActualDriver.GetCarMoveVariable().x * f_speed_multiple, m_ActualDriver.GetCarMoveVariable().x, m_ActualDriver.GetCarMoveVariable().z);
+        if(b_can_move)
+        {
+            m_Car.Move(m_ActualDriver.GetCarMoveVariable().y, m_ActualDriver.GetCarMoveVariable().x, m_ActualDriver.GetCarMoveVariable().x, m_ActualDriver.GetCarMoveVariable().z);
+        }
+        
     }
 
     public void VerifySwitchState()
@@ -83,8 +86,8 @@ public class Script_Vehicle : MonoBehaviour
 
     public void AddSpeedMultiple()
     {
-        f_speed_multiple += f_speed_add_by_life;
-        Debug.Log("Got " + f_speed_multiple);
+        m_Car.GetComponent<Rigidbody>().AddForce(m_Car.transform.forward * f_speed_boost_speed, ForceMode.Impulse);
+        m_Car.ChangeMaxSpeed(f_speed_boost_speed);
     }
 
     public void CanLapTrue()
@@ -100,5 +103,15 @@ public class Script_Vehicle : MonoBehaviour
     public bool ReturnCanLap()
     {
         return b_can_lap;
+    }
+
+    public void CanMoveTrue()
+    {
+        b_can_move = true;
+    }
+
+    public void CanMoveFalse()
+    {
+        b_can_move = false;
     }
 }

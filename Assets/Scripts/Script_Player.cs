@@ -214,12 +214,14 @@ void Start()
 
     private void UsingHealth()
     {
-        if(m_current_usingLife_cd <= 0)
+        if(f_CurrentHealth > 0)
         {
-            f_CurrentHealth -= m_usingLife;
-            transform.root.GetComponent<Script_Vehicle>().AddSpeedMultiple();
+            if (m_current_usingLife_cd <= 0)
+            {
+                f_CurrentHealth -= m_usingLife;
+                transform.root.GetComponent<Script_Vehicle>().AddSpeedMultiple();
+            }
         }
-        
     }
 
     public void AddLife(float LifeAdded)

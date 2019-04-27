@@ -71,6 +71,10 @@ namespace UnityStandardAssets.Vehicles.Car
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
         }
 
+        public void ChangeMaxSpeed(float f_max_speed)
+        {
+            m_Topspeed += f_max_speed;
+        }
 
         private void GearChanging()
         {
