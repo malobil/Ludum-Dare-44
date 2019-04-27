@@ -15,7 +15,7 @@ public class Script_Player : MonoBehaviour
 
     [Header("Timer")]
 
-    [SerializeField] private float f_set_timer;
+    [SerializeField] private float f_set_timer = 3f;
     private float f_current_timer;
 
 
