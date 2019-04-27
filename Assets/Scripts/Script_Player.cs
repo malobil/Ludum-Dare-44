@@ -33,23 +33,14 @@ public class Script_Player : MonoBehaviour
 
     private CarController m_Car; // the car controller we want to use
 
-
-    private void Awake()
-    {
-        // get the car controller
-       
-    }
-
-    void Start()
+void Start()
     {
         m_Car = transform.root.GetComponent<CarController>();
-        Debug.Log(m_Car);
+
         if (Input.GetJoystickNames().Length > i_player_number - 1)
         {
             s_controller_type = Input.GetJoystickNames()[i_player_number - 1];
             s_player_number = i_player_number.ToString("");
-            Debug.Log(s_controller_type + " controller nb " + i_player_number);
-
         }
 
         f_CurrentHealth = 20f;
@@ -85,6 +76,7 @@ public class Script_Player : MonoBehaviour
             {
                 if (m_isDriver)
                 {
+                    AddLife(Time.deltaTime * 2);
                     float accelerateInput = Input.GetAxis("R2_P" + s_player_number);
                     float decelerateInput = Input.GetAxis("L2_P" + s_player_number);
 
@@ -115,10 +107,13 @@ public class Script_Player : MonoBehaviour
                     Debug.Log("R1_P" + s_player_number);
                 }
 
-                if (Input.GetAxis("R2_P" + s_player_number) > 0)
+                if (!m_isDriver)
                 {
-                    // UsingHealth();
-                    Debug.Log("R2_P" + s_player_number);
+                    if (Input.GetAxis("R2_P" + s_player_number) > 0)
+                    {
+                        UsingHealth();
+                        Debug.Log("R2_P" + s_player_number);
+                    }
                 }
 
                 if (Input.GetAxis("L2_P" + s_player_number) > 0)
@@ -140,6 +135,7 @@ public class Script_Player : MonoBehaviour
             {
                 if (m_isDriver)
                 {
+                    AddLife(Time.deltaTime * 2);
                     float accelerateInput = Input.GetAxis("RT_P" + s_player_number);
                     float decelerateInput = Input.GetAxis("LT_P" + s_player_number);
 
@@ -158,12 +154,14 @@ public class Script_Player : MonoBehaviour
                     m_Car.Move(h, v, v, handbrake);
                 }
 
-               
 
-                if (Input.GetAxis("RT_P" + s_player_number) > 0)
+                if (!m_isDriver)
                 {
-                    // UsingHealth();
-                    Debug.Log("RT_P" + s_player_number);
+                    if (Input.GetAxis("RT_P" + s_player_number) > 0)
+                    {
+                        UsingHealth();
+                        Debug.Log("RT_P" + s_player_number);
+                    }
                 }
 
                 if (Input.GetAxis("LT_P" + s_player_number) > 0)
@@ -192,9 +190,6 @@ public class Script_Player : MonoBehaviour
                     Debug.Log("Vertical_P" + s_player_number);
                 }
             }
-            Debug.Log(h);
-            Debug.Log(v);
-           
         }
     }
 
