@@ -7,7 +7,7 @@ using UnityStandardAssets.Vehicles.Car;
 public class Script_Player : MonoBehaviour
 {
     [SerializeField] private float m_MaxHealth = 100f;
-    [SerializeField] private float m_usingLife = 1f;
+    [SerializeField] private float m_usingLife = 2f;
     [SerializeField] private float m_usingLife_cd = 1f;
 
     private float m_current_usingLife_cd = 0f;
@@ -40,17 +40,15 @@ public class Script_Player : MonoBehaviour
     private float turn = 0f;
     private float drift = 0f;
 
-void Start()
+    void Start()
     {
-
-
         if (Input.GetJoystickNames().Length > i_player_number - 1)
         {
             s_controller_type = Input.GetJoystickNames()[i_player_number - 1];
             s_player_number = i_player_number.ToString("");
         }
 
-        f_CurrentHealth = 20f;
+        f_CurrentHealth = m_MaxHealth;
 
     }
 
@@ -214,14 +212,17 @@ void Start()
 
     private void UsingHealth()
     {
-        if(f_CurrentHealth > 0)
+        if(f_CurrentHealth - m_usingLife > 0)
         {
             if (m_current_usingLife_cd <= 0)
             {
                 f_CurrentHealth -= m_usingLife;
                 transform.root.GetComponent<Script_Vehicle>().AddSpeedMultiple();
+                m_current_usingLife_cd = m_usingLife_cd;
             }
         }
+
+        UpdateHealthUI();
     }
 
     public void AddLife(float LifeAdded)
@@ -230,6 +231,30 @@ void Start()
             f_CurrentHealth = m_MaxHealth;
         else
             f_CurrentHealth += LifeAdded;
+
+        UpdateHealthUI();
+    }
+
+    private void UpdateHealthUI()
+    {
+        switch(i_player_number)
+        {
+            case 1:
+                Script_UIManager.Instance.UpdateP1Life(f_CurrentHealth);
+                break;
+
+            case 2:
+                Script_UIManager.Instance.UpdateP2Life(f_CurrentHealth);
+                break;
+
+            case 3:
+                Script_UIManager.Instance.UpdateP3Life(f_CurrentHealth);
+                break;
+
+            case 4:
+                Script_UIManager.Instance.UpdateP4Life(f_CurrentHealth);
+                break;
+        }
     }
 
     public void BecomeDriver()
