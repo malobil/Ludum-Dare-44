@@ -6,13 +6,17 @@ public class Script_Player : MonoBehaviour
 {
     public static Script_Player Instance { get; private set; }
 
-    
     [SerializeField] private float f_acceleration;
     [SerializeField] private float f_currentHealth;
     [SerializeField] private float f_usingLife = 1f;
     private float f_current_speed;
     private float f_max_speed;
     private float f_Health = 5f;
+
+    [Header("Timer")]
+
+    [SerializeField] private float f_set_timer;
+    private float f_current_timer;
 
 
     [Header("Switch")]
@@ -35,11 +39,28 @@ public class Script_Player : MonoBehaviour
     void Start()
     {
         f_currentHealth = f_Health;
+        f_current_timer = f_set_timer;
     }
 
     void Update()
     {
-        Accelerate();
+        if(b_want_to_switch)
+        {
+            if(f_current_timer > 0)
+            {
+                f_current_timer = -Time.deltaTime;
+            }
+            else if (f_current_timer < 0)
+            {
+                b_want_to_switch = false; ;
+                f_current_timer = f_set_timer;
+            }
+        }
+
+        if(Input.GetKeyDown("space"))
+        {
+            Script_Vehicle.Instance.Accelerate();
+        }
 
         if(Input.GetKeyDown("e"))
         {
@@ -52,17 +73,14 @@ public class Script_Player : MonoBehaviour
         }
     }
 
-    public void Accelerate()
-    {
-        if(f_current_speed < f_max_speed)
-        {
-
-        }
-    }
-
     private void WantToSwitch()
     {
+        b_want_to_switch = true;
+    }
 
+    public bool ReturnSwitchBool()
+    {
+        return b_want_to_switch;
     }
 
     private void UsingHealth()
