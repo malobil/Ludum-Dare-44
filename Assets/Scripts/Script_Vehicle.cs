@@ -49,18 +49,21 @@ public class Script_Vehicle : MonoBehaviour
             SwitchPlayer();
         }
 
-        m_ActualDriver.AddLife(Time.deltaTime * 2);
+     
     }
 
     public void VerifySwitchState()
     {
+        int a = 0;
         foreach(Script_Player player in l_player)
         {
             if(player.ReturnSwitchBool())
             {
-                SwitchPlayer();
+                a++;
             }  
         }
+        if (a == 2)
+            SwitchPlayer();
     }
 
     public void SwitchPlayer()
@@ -80,6 +83,7 @@ public class Script_Vehicle : MonoBehaviour
         m_ActualPassenger.transform.position = l_transform_switch_target[1].position;
         m_ActualDriver.BecomeDriver();
         m_ActualPassenger.BecomePassenger();
+        Debug.Log("Hey je suis le conducteur, lol");
     }
 
     public void AddLifeTodriver(float Life)
