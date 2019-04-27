@@ -17,3 +17,16 @@ Les joueur peuvent switch (requiert les deux joueurs qui appel à un switch)
 
 Des objets sur la map et quand récupérés donnent de la vie au conducteur
 
+R2 => Accelerer / donner vie
+R1 => Swicth
+Carre => tapper
+Joystick gauche => direction
+L2 => freiner
+
+Z => accelerer 
+E => switch
+a => tapper
+qd => direction
+s => freiner
+
+
