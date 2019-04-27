@@ -8,10 +8,10 @@ public class Script_Player : MonoBehaviour
 
     
     [SerializeField] private float f_acceleration;
-    private float f_current_speed;
-    private float f_max_speed;
     [SerializeField] private float f_currentHealth;
     [SerializeField] private float f_usingLife = 1f;
+    private float f_current_speed;
+    private float f_max_speed;
     private float f_Health = 5f;
 
 
