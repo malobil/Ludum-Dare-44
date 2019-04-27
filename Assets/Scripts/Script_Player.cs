@@ -2,68 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Script_Player : MonoBehaviour
 {
-    public static Script_Player Instance { get; private set; }
-
-    [SerializeField] private float f_acceleration;
-    [SerializeField] private float f_MaxHealth;
-    [SerializeField] private float f_usingLife = 1f;
+    [SerializeField] private float m_MaxHealth = 100f;
+    [SerializeField] private float m_usingLife = 1f;
     private float f_current_speed;
     private float f_max_speed;
     private float f_CurrentHealth = 0f;
 
     [Header("Timer")]
 
-    [SerializeField] private float f_set_timer = 3f;
+    [SerializeField] private float m_setTimer = 3f;
     private float f_current_timer;
+
+    private bool m_isDriver = false;
 
 
     [Header("Switch")]
 
-    public bool b_want_to_switch;
-
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
+    bool b_want_to_switch;
 
     void Start()
     {
-        f_CurrentHealth = f_MaxHealth;
-        f_current_timer = f_set_timer;
+        f_CurrentHealth = 20f;
+        f_current_timer = m_setTimer;
     }
 
     void Update()
     {
-        if(b_want_to_switch)
+        if (b_want_to_switch)
         {
-            if(f_current_timer > 0)
+            if (f_current_timer > 0)
             {
                 f_current_timer = -Time.deltaTime;
             }
             else if (f_current_timer < 0)
             {
                 b_want_to_switch = false; ;
-                f_current_timer = f_set_timer;
+                f_current_timer = m_setTimer;
             }
         }
 
 
-        if(Input.GetKeyDown("e"))
+        if (Input.GetKeyDown("e"))
         {
             WantToSwitch();
         }
 
-        if(Input.GetKeyDown("f") && f_CurrentHealth > 0f)
+        if (Input.GetKeyDown("f") && f_CurrentHealth > 0f && !m_isDriver)
         {
             UsingHealth();
         }
@@ -81,15 +68,26 @@ public class Script_Player : MonoBehaviour
 
     private void UsingHealth()
     {
-        f_CurrentHealth -= f_usingLife;
+        f_CurrentHealth -= m_usingLife;
         Debug.Log(f_CurrentHealth);
     }
 
     public void AddLife(float LifeAdded)
     {
-        if (LifeAdded + f_CurrentHealth >= f_MaxHealth)
-            f_CurrentHealth = f_MaxHealth;
+        Debug.Log("Life");
+        if (LifeAdded + f_CurrentHealth >= m_MaxHealth)
+            f_CurrentHealth = m_MaxHealth;
         else
             f_CurrentHealth += LifeAdded;
+    }
+
+    public void BecomeDriver()
+    {
+        m_isDriver = true;
+    }
+
+    public void BecomePassenger()
+    {
+        m_isDriver = false;
     }
 }
