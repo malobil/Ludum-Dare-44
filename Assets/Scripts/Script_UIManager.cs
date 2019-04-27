@@ -8,9 +8,19 @@ public class Script_UIManager : MonoBehaviour
     public static Script_UIManager Instance { get; private set; }
 
     [Header("UIGame")]
+    public GameObject m_pauseMenu;
+    public GameObject m_endGameMenu;
 
-    public GameObject g_pause;
-    public GameObject g_finish;
+    public Text m_LapP1;
+    public Text m_LapP2;
+
+    private int P1Lap;
+    private int P2Lap;
+
+    public Image m_P1Life;
+    public Image m_P2Life;
+    public Image m_P3Life;
+    public Image m_P4Life;
 
 
     private void Awake()
@@ -27,21 +37,66 @@ public class Script_UIManager : MonoBehaviour
 
     public void ShowPause()
     {
-        g_pause.SetActive(true);
+        m_pauseMenu.SetActive(true);
     }
 
     public void UnShowPause()
     {
-        g_pause.SetActive(false);
+        m_pauseMenu.SetActive(false);
     }
 
     public void ShowFinish()
     {
-        g_finish.SetActive(true);
+        m_endGameMenu.SetActive(true);
     }
 
     public void UnShowFinish()
     {
-        g_finish.SetActive(false);
+        m_endGameMenu.SetActive(false);
+    }
+
+    public void UpdateP1Life(float life)
+    {
+        m_P1Life.fillAmount = life / 100;
+    }
+
+    public void UpdateP2Life(float life)
+    {
+        m_P2Life.fillAmount = life / 100;
+    }
+
+    public void UpdateP3Life(float life)
+    {
+        m_P3Life.fillAmount = life / 100;
+    }
+
+    public void UpdateP4Life(float life)
+    {
+        m_P4Life.fillAmount = life / 100;
+    }
+
+    public void UpdateLap(int player)
+    {
+        if (player == 0)
+        {
+            P1Lap++;
+
+            m_LapP1.text = P1Lap.ToString();
+            if (P1Lap >= 3)
+            {
+                ShowFinish();
+            }
+        }
+
+        if (player == 1)
+        {
+            P2Lap++;
+
+            m_LapP2.text = P2Lap.ToString();
+            if (P2Lap >= 3)
+            {
+                ShowFinish();
+            }
+        }
     }
 }
