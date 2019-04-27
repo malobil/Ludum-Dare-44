@@ -849,6 +849,11 @@ PrefabInstance:
       propertyPath: m_usingLife
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6626573516976118144, guid: e1454eab2369be54eaaa6ee1af63a1ac,
+        type: 3}
+      propertyPath: f_add_heal_per_second
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1454eab2369be54eaaa6ee1af63a1ac, type: 3}
 --- !u!4 &1508551007 stripped

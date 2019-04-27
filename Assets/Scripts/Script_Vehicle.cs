@@ -52,7 +52,8 @@ public class Script_Vehicle : MonoBehaviour
         {
             m_Car.Move(m_ActualDriver.GetCarMoveVariable().y, m_ActualDriver.GetCarMoveVariable().x, m_ActualDriver.GetCarMoveVariable().x, m_ActualDriver.GetCarMoveVariable().z);
         }
-        
+
+        m_ActualDriver.AddLife(f_add_heal_per_second * Time.deltaTime);
     }
 
     public void VerifySwitchState()

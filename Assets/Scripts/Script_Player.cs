@@ -111,7 +111,6 @@ public class Script_Player : MonoBehaviour
                 if (Input.GetButtonDown("R1_P" + s_player_number))
                 {
                     WantToSwitch();
-                    Debug.Log("R1_P" + s_player_number);
                 }
 
                 if (m_vehicle.GetCurrentPassenger() == this)
@@ -119,7 +118,6 @@ public class Script_Player : MonoBehaviour
                     if (Input.GetAxis("R2_P" + s_player_number) > 0)
                     {
                         UsingHealth();
-                        Debug.Log("R2_P" + s_player_number);
                     }
                 }
 
