@@ -59,6 +59,7 @@ public class Script_Player : MonoBehaviour
     private void WantToSwitch()
     {
         b_want_to_switch = true;
+        transform.root.GetComponent<Script_Vehicle>().VerifySwitchState();
     }
 
     public bool ReturnSwitchBool()
