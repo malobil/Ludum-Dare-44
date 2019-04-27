@@ -22,7 +22,7 @@ public class Script_Player : MonoBehaviour
     [Header("Timer")]
 
     [SerializeField] private float m_setTimer = 3f;
-    private float f_current_timer;
+    private float f_switch_current_timer;
 
     public bool m_isDriver = false;
 
@@ -44,21 +44,20 @@ void Start()
         }
 
         f_CurrentHealth = 20f;
-        f_current_timer = m_setTimer;
+
     }
 
     void Update()
     {
         if (b_want_to_switch)
         {
-            if (f_current_timer > 0)
+            if (f_switch_current_timer > 0)
             {
-                f_current_timer = -Time.deltaTime;
+                f_switch_current_timer = -Time.deltaTime;
             }
-            else if (f_current_timer < 0)
+            else if (f_switch_current_timer <= 0)
             {
                 b_want_to_switch = false; ;
-                f_current_timer = m_setTimer;
             }
         }
     }
@@ -195,6 +194,7 @@ void Start()
 
     private void WantToSwitch()
     {
+        f_switch_current_timer = m_setTimer;
         b_want_to_switch = true;
         transform.root.GetComponent<Script_Vehicle>().VerifySwitchState();
     }
@@ -220,10 +220,12 @@ void Start()
     public void BecomeDriver()
     {
         m_isDriver = true;
+        b_want_to_switch = false;
     }
 
     public void BecomePassenger()
     {
         m_isDriver = false;
+        b_want_to_switch = false;
     }
 }

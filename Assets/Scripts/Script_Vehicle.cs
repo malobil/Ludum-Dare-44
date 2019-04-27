@@ -9,13 +9,6 @@ public class Script_Vehicle : MonoBehaviour
     [SerializeField] private List<Script_Player> l_player;
     [SerializeField] private List<Transform> l_transform_switch_target;
 
-    [Header("Vehicle")]
-
-    [SerializeField] private float f_acceleration;
-    private Rigidbody rb { get { return GetComponent<Rigidbody>(); } }
-    private float f_current_speed;
-    private float f_max_speed;
-
     private Script_Player m_ActualDriver = null;
     private Script_Player m_ActualPassenger = null;
 
@@ -34,6 +27,7 @@ public class Script_Vehicle : MonoBehaviour
             m_ActualDriver = l_player[1];
             m_ActualPassenger = l_player[0];
         }
+
         m_ActualDriver.BecomeDriver();
         m_ActualPassenger.BecomePassenger();
 
@@ -42,24 +36,11 @@ public class Script_Vehicle : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        if(Input.GetKeyDown("a"))
-        {
-            SwitchPlayer();
-        }
-
-        m_ActualDriver.AddLife(Time.deltaTime * 2);
-    }
-
     public void VerifySwitchState()
     {
-        foreach(Script_Player player in l_player)
+        if(m_ActualDriver.GetComponent<Script_Player>().ReturnSwitchBool() && m_ActualPassenger.GetComponent<Script_Player>().ReturnSwitchBool())
         {
-            if(player.ReturnSwitchBool())
-            {
-                SwitchPlayer();
-            }  
+            SwitchPlayer();
         }
     }
 
