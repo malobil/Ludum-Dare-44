@@ -6,6 +6,8 @@ public class Script_Vehicle : MonoBehaviour
 {
     public static Script_Vehicle Instance { get; private set; }
 
+    [Header ("Switch")]
+
     [SerializeField] private List<GameObject> l_player;
     [SerializeField] private List<Transform> l_transform_switch_target;
 
@@ -23,7 +25,10 @@ public class Script_Vehicle : MonoBehaviour
 
     void Update()
     {
-        
+        if(Input.GetKeyDown("a"))
+        {
+            SwitchPlayer();
+        }
     }
 
     public void VerifySwitchState()
@@ -40,13 +45,5 @@ public class Script_Vehicle : MonoBehaviour
     public void SwitchPlayer()
     {
         
-    }
-
-    public void Accelerate()
-    {
-        if (f_current_speed < f_max_speed)
-        {
-
-        }
     }
 }
