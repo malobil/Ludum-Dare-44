@@ -10,13 +10,6 @@ public class Script_Player : MonoBehaviour
 
     private float f_current_timer;
     [SerializeField] private float f_set_timer = 2f;
-    
-    [Header ("Vehicle")]
-
-    [SerializeField] private float f_acceleration;
-    [SerializeField] private Rigidbody rb { get { return GetComponent<Rigidbody>(); } }
-    private float f_current_speed;
-    private float f_max_speed;
     [SerializeField] private float f_life;
 
     [Header("Switch")]
@@ -50,7 +43,7 @@ public class Script_Player : MonoBehaviour
                 f_current_timer =- Time.deltaTime;
 
             }
-            else if(f_current_speed < 0)
+            else if(f_current_timer < 0)
             {
                 b_want_to_switch = false;
                 f_current_timer = f_set_timer;
@@ -59,20 +52,12 @@ public class Script_Player : MonoBehaviour
 
         if(Input.GetKeyDown("space"))
         {
-            Accelerate();
+            Script_Vehicle.Instance.Accelerate();
         }
 
         if(Input.GetKeyDown("e"))
         {
             WantToSwitch();
-        }
-    }
-
-    public void Accelerate()
-    {
-        if(f_current_speed < f_max_speed)
-        {
-
         }
     }
 
