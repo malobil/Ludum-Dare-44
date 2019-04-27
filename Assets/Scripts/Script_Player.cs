@@ -57,10 +57,6 @@ public class Script_Player : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown("space"))
-        {
-            Script_Vehicle.Instance.Accelerate();
-        }
 
         if(Input.GetKeyDown("e"))
         {

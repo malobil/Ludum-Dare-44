@@ -18,6 +18,8 @@ public class Script_Vehicle : MonoBehaviour
     private float f_current_speed;
     private float f_max_speed;
 
+    private Script_Player m_ActualDriver = null;
+
     void Start()
     {
         
@@ -45,5 +47,11 @@ public class Script_Vehicle : MonoBehaviour
     public void SwitchPlayer()
     {
         
+    }
+
+    public void AddLifeTodriver(float Life)
+    {
+        if (m_ActualDriver)
+            m_ActualDriver.AddLife(Life);
     }
 }
