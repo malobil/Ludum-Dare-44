@@ -19,6 +19,9 @@ public class Script_Vehicle : MonoBehaviour
     private float f_max_speed;
 
     private Script_Player m_ActualDriver = null;
+    private Script_Player m_ActualPassenger = null;
+
+    [SerializeField] private float f_add_heal_per_second;
 
     void Start()
     {
@@ -27,6 +30,8 @@ public class Script_Vehicle : MonoBehaviour
 
     void Update()
     {
+        m_ActualDriver.AddLife(f_add_heal_per_second);
+
         if(Input.GetKeyDown("a"))
         {
             SwitchPlayer();
