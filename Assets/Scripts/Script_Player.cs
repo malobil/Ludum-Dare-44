@@ -7,11 +7,11 @@ public class Script_Player : MonoBehaviour
     public static Script_Player Instance { get; private set; }
 
     [SerializeField] private float f_acceleration;
-    [SerializeField] private float f_currentHealth;
+    [SerializeField] private float f_MaxHealth;
     [SerializeField] private float f_usingLife = 1f;
     private float f_current_speed;
     private float f_max_speed;
-    private float f_Health = 5f;
+    private float f_CurrentHealth = 0f;
 
     [Header("Timer")]
 
@@ -38,7 +38,7 @@ public class Script_Player : MonoBehaviour
 
     void Start()
     {
-        f_currentHealth = f_Health;
+        f_CurrentHealth = f_MaxHealth;
         f_current_timer = f_set_timer;
     }
 
@@ -67,7 +67,7 @@ public class Script_Player : MonoBehaviour
             WantToSwitch();
         }
 
-        if(Input.GetKeyDown("f") && f_currentHealth > 0f)
+        if(Input.GetKeyDown("f") && f_CurrentHealth > 0f)
         {
             UsingHealth();
         }
@@ -85,7 +85,15 @@ public class Script_Player : MonoBehaviour
 
     private void UsingHealth()
     {
-        f_currentHealth -= f_usingLife;
-        Debug.Log(f_currentHealth);
+        f_CurrentHealth -= f_usingLife;
+        Debug.Log(f_CurrentHealth);
+    }
+
+    public void AddLife(float LifeAdded)
+    {
+        if (LifeAdded + f_CurrentHealth >= f_MaxHealth)
+            f_CurrentHealth = f_MaxHealth;
+        else
+            f_CurrentHealth += LifeAdded;
     }
 }
