@@ -24,7 +24,7 @@ public class Script_Player : MonoBehaviour
     [SerializeField] private float m_setTimer = 3f;
     private float f_current_timer;
 
-    private bool m_isDriver = false;
+    public bool m_isDriver = false;
 
 
     [Header("Switch")]
@@ -42,7 +42,7 @@ public class Script_Player : MonoBehaviour
 
     void Start()
     {
-        m_Car = GetComponent<CarController>();
+        m_Car = transform.root.GetComponent<CarController>();
         Debug.Log(m_Car);
         if (Input.GetJoystickNames().Length > i_player_number - 1)
         {
@@ -83,8 +83,26 @@ public class Script_Player : MonoBehaviour
         {
             if (s_controller_type == "Wireless Controller")
             {
-                v = Input.GetAxis("R2_P" + s_player_number) + 1;
-                h = Input.GetAxis("Horizontal_P" + s_player_number);
+                if (m_isDriver)
+                {
+                    float accelerateInput = Input.GetAxis("R2_P" + s_player_number);
+                    float decelerateInput = Input.GetAxis("L2_P" + s_player_number);
+
+                    if (Input.GetAxis("R2_P" + s_player_number) < 0)
+                    {
+                        accelerateInput = 0f;
+                    }
+
+                    if (Input.GetAxis("L2_P" + s_player_number) < 0)
+                    {
+                        decelerateInput = 0f;
+                    }
+
+                    v = accelerateInput - decelerateInput;
+                    h = Input.GetAxis("Horizontal_P" + s_player_number);
+                    m_Car.Move(h, v, v, handbrake);
+                }
+              
 
                 if (Input.GetButtonDown("Square_P" + s_player_number))
                 {
@@ -120,8 +138,27 @@ public class Script_Player : MonoBehaviour
             }
             else
             {
-                v = Input.GetAxis("RT_P" + s_player_number);
-                h = Input.GetAxis("Horizontal_P" + s_player_number);
+                if (m_isDriver)
+                {
+                    float accelerateInput = Input.GetAxis("RT_P" + s_player_number);
+                    float decelerateInput = Input.GetAxis("LT_P" + s_player_number);
+
+                    if (Input.GetAxis("RT_P" + s_player_number) < 0)
+                    {
+                        accelerateInput = 0f;
+                    }
+
+                    if (Input.GetAxis("LT_P" + s_player_number) < 0)
+                    {
+                        decelerateInput = 0f;
+                    }
+
+                    v = accelerateInput - decelerateInput;
+                    h = Input.GetAxis("Horizontal_P" + s_player_number);
+                    m_Car.Move(h, v, v, handbrake);
+                }
+
+               
 
                 if (Input.GetAxis("RT_P" + s_player_number) > 0)
                 {
@@ -131,7 +168,7 @@ public class Script_Player : MonoBehaviour
 
                 if (Input.GetAxis("LT_P" + s_player_number) > 0)
                 {
-                    Debug.Log("RT_P" + s_player_number);
+                    Debug.Log("LT_P" + s_player_number);
                 }
 
                 if (Input.GetButtonDown("RB_P" + s_player_number))
@@ -157,7 +194,7 @@ public class Script_Player : MonoBehaviour
             }
             Debug.Log(h);
             Debug.Log(v);
-            m_Car.Move(h, v, v, handbrake);
+           
         }
     }
 
