@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 536927063719100634}
   - component: {fileID: 8802438229749562092}
   - component: {fileID: 2959994727224673813}
-  - component: {fileID: 2329306032114394981}
   m_Layer: 0
   m_Name: arbre3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &536927063719100634
 Transform:
@@ -78,17 +77,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2329306032114394981
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3542315892267528905}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: -7391197504366392109, guid: 82f2b6b2c5c08dd40a62a15cd6addb50, type: 3}
