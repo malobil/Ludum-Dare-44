@@ -313,7 +313,7 @@ public class Script_Player : MonoBehaviour
 
     IEnumerator WaitforAttack()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2f);
         b_Attack_Cooldown = true;
     }
 }
