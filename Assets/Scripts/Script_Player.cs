@@ -33,6 +33,7 @@ public class Script_Player : MonoBehaviour
     [Header("Switch")]
 
     bool b_want_to_switch;
+    public AudioClip a_hey_switch;
 
     private CarController m_Car; // the car controller we want to use
     private Script_Vehicle m_vehicle ; // the car controller we want to use
@@ -221,6 +222,7 @@ public class Script_Player : MonoBehaviour
         f_switch_current_timer = m_setTimer;
         b_want_to_switch = true;
         transform.root.GetComponent<Script_Vehicle>().VerifySwitchState();
+        Script_Audio_Manager.Instance.PlayAudioClip(a_hey_switch);
         Debug.Log("I one two switch");
     }
 

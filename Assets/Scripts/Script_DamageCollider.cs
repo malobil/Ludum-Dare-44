@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Script_DamageCollider : MonoBehaviour
 {
+    public AudioClip a_take_damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class Script_DamageCollider : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Script_Audio_Manager.Instance.PlayAudioClip(a_take_damage);
             other.transform.root.GetComponent<Script_Vehicle>().DamagePassenger();
             transform.root.GetComponent<Script_Vehicle>().AddLifeToPassenger(10);
         }
