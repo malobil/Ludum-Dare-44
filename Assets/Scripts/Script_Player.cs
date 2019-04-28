@@ -105,7 +105,7 @@ public class Script_Player : MonoBehaviour
 
                 if (Input.GetButtonDown("Square_P" + s_player_number))
                 {
-                    Debug.Log("Square_P" + s_player_number);
+                    m_vehicle.Attack();
                 }
 
                 if (Input.GetButtonDown("R1_P" + s_player_number))
@@ -180,7 +180,7 @@ public class Script_Player : MonoBehaviour
 
                 if (Input.GetButtonDown("X_P" + s_player_number))
                 {
-                    Debug.Log("X_P" + s_player_number);
+                    m_vehicle.Attack();
                 }
 
                 if (Input.GetAxis("Horizontal_P" + s_player_number) > 0)
@@ -234,6 +234,18 @@ public class Script_Player : MonoBehaviour
         UpdateHealthUI();
     }
 
+    public void RemoveLife(float LifeRemoved)
+    {
+        if (f_CurrentHealth - LifeRemoved > 0)
+        {
+            f_CurrentHealth -= LifeRemoved;
+        }
+        else
+        {
+            f_CurrentHealth = 0;
+        }
+    }
+
     private void UpdateHealthUI()
     {
         switch(i_player_number)
@@ -272,4 +284,6 @@ public class Script_Player : MonoBehaviour
     {
         return new Vector3(acceleration, turn, drift);
     }
+
+
 }
