@@ -15,8 +15,8 @@ public class Script_UIManager : MonoBehaviour
     public Text m_LapP2;
     public Text WinText;
 
-    private int P1Lap;
-    private int P2Lap;
+    private int P1Lap = 1;
+    private int P2Lap = 1;
 
     public Image m_P1Life;
     public Image m_P2Life;
@@ -78,6 +78,7 @@ public class Script_UIManager : MonoBehaviour
 
     public void UpdateLap(int player)
     {
+        Debug.Log(player);
         if (player == 0)
         {
             P1Lap++;
