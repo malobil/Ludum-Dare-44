@@ -30,7 +30,9 @@ public class Script_LifeCollectibles_Spawn : MonoBehaviour
 
     public void SpawnPrefab()
     {
-        Instantiate(prefab, transform);
+        GameObject yes = Instantiate(prefab, transform);
+        yes.transform.position = transform.position;
+
     }
 
     public void ResetCD()
