@@ -29073,12 +29073,12 @@ MonoBehaviour:
   m_MaximumSteerAngle: 25
   m_SteerHelper: 0.644
   m_TractionControl: 1
-  m_FullTorqueOverAllWheels: 1000
+  m_FullTorqueOverAllWheels: 1500
   m_ReverseTorque: 500
   m_MaxHandbrakeTorque: 100000000
-  m_Downforce: 0
-  m_SpeedType: 0
-  m_Topspeed: 300
+  m_Downforce: 400
+  m_SpeedType: 1
+  m_Topspeed: 800
   m_RevRangeBoundary: 1
   m_SlipLimit: 0.3
   m_BrakeTorque: 20000
@@ -29181,13 +29181,13 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5823993828598201993}
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.37
+  m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 70000
+    spring: 7000
     damper: 3500
     targetPosition: 0.1
   m_SuspensionDistance: 0.2
-  m_ForceAppPointDistance: 0.1
+  m_ForceAppPointDistance: 0.5
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -29339,13 +29339,13 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5823993828598201995}
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.37
+  m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 70000
+    spring: 7000
     damper: 3500
     targetPosition: 0.1
   m_SuspensionDistance: 0.2
-  m_ForceAppPointDistance: 0.1
+  m_ForceAppPointDistance: 0.5
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -29497,14 +29497,14 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5823993828598201997}
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.335
+  m_Radius: 0.4
   m_SuspensionSpring:
-    spring: 70000
+    spring: 7000
     damper: 3500
     targetPosition: 0.1
-  m_SuspensionDistance: 0.2
-  m_ForceAppPointDistance: 0.1
-  m_Mass: 20
+  m_SuspensionDistance: 0.5
+  m_ForceAppPointDistance: 0.5
+  m_Mass: 15
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -29513,8 +29513,8 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
-    m_ExtremumValue: 1
+    m_ExtremumSlip: 17
+    m_ExtremumValue: 5
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
@@ -29655,14 +29655,14 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5823993828598201999}
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.335
+  m_Radius: 0.4
   m_SuspensionSpring:
-    spring: 70000
+    spring: 7000
     damper: 3500
     targetPosition: 0.1
-  m_SuspensionDistance: 0.2
-  m_ForceAppPointDistance: 0.1
-  m_Mass: 20
+  m_SuspensionDistance: 0.5
+  m_ForceAppPointDistance: 0.5
+  m_Mass: 15
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -29671,8 +29671,8 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
-    m_ExtremumValue: 1
+    m_ExtremumSlip: 17
+    m_ExtremumValue: 5
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
