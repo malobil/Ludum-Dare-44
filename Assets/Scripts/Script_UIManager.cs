@@ -37,7 +37,6 @@ public class Script_UIManager : MonoBehaviour
     [Header("Start")]
 
     public GameObject g_player_1;
-    public GameObject g_player_2;
     public GameObject g_THOMAS;
 
     public Transform spawn_point;
@@ -57,7 +56,18 @@ public class Script_UIManager : MonoBehaviour
 
     private void Start()
     {
-        Instantiate(g_player_1, spawn_point);
+        int i_spawn = Random.Range(0, 10);
+
+        if(i_spawn <= 8)
+        {
+            Instantiate(g_player_1, spawn_point);
+        }
+
+        if(i_spawn > 8)
+        {
+            Instantiate(g_THOMAS, spawn_point);
+        }
+        
 
         a_audio_source = GetComponent<AudioSource>();
     }
