@@ -19368,13 +19368,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1546242816649262911}
   - component: {fileID: 6142653709425512990}
+  - component: {fileID: 2164985258653755493}
   m_Layer: 0
   m_Name: Damage_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1546242816649262911
 Transform:
   m_ObjectHideFlags: 0
@@ -19399,10 +19400,22 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.52720755
-  m_Height: 1.8365285
+  m_Radius: 1.03
+  m_Height: 2.83
   m_Direction: 1
   m_Center: {x: 0.027207553, y: 0.39105666, z: 0}
+--- !u!114 &2164985258653755493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2677904207842705087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6d1936e0e694542add2fa912404377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5517059579231532671
 GameObject:
   m_ObjectHideFlags: 0
@@ -19591,7 +19604,7 @@ MonoBehaviour:
   f_speed_boost_speed: 3000
   i_team: 0
   g_AttackCollider: {fileID: 2677904207842705087}
-  f_DamagePassenger: 0
+  f_DamagePassenger: 10
 --- !u!1 &5823993828598201993
 GameObject:
   m_ObjectHideFlags: 0
@@ -20573,6 +20586,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d2586aa9d5124b44bcbb0fff2b81fb5, type: 3}
+--- !u!4 &4031766566769422768 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 8d2586aa9d5124b44bcbb0fff2b81fb5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8253130653857471146}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &737039568235325075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8697435009362771001, guid: 8d2586aa9d5124b44bcbb0fff2b81fb5,
@@ -20582,12 +20601,6 @@ GameObject:
 --- !u!1 &7369626014908160273 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1499462602065691579, guid: 8d2586aa9d5124b44bcbb0fff2b81fb5,
-    type: 3}
-  m_PrefabInstance: {fileID: 8253130653857471146}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4031766566769422768 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 8d2586aa9d5124b44bcbb0fff2b81fb5,
     type: 3}
   m_PrefabInstance: {fileID: 8253130653857471146}
   m_PrefabAsset: {fileID: 0}
