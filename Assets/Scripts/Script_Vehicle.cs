@@ -90,6 +90,11 @@ public class Script_Vehicle : MonoBehaviour
             m_ActualDriver.AddLife(Life);
     }
 
+    public void AddLifeToPassenger (float Life)
+    {
+        m_ActualPassenger.AddLife(Life);
+    }
+
     public void AddSpeedMultiple()
     {
         m_Car.GetComponent<Rigidbody>().AddForce(m_Car.transform.forward * f_speed_boost_speed, ForceMode.Impulse);
@@ -140,10 +145,17 @@ public class Script_Vehicle : MonoBehaviour
     public void Attack()
     {
         g_AttackCollider.SetActive(true);
+        StartCoroutine("WaitforFade");
     }
 
     public void DamagePassenger()
     {
         m_ActualPassenger.RemoveLife(f_DamagePassenger);
+        Debug.Log("Life removed");
+    }
+    IEnumerator WaitforFade()
+    {
+        yield return new WaitForSeconds(0.5f);
+        g_AttackCollider.SetActive(false);
     }
 }

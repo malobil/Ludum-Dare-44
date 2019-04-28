@@ -20,7 +20,14 @@ public class Script_DamageCollider : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<Script_Vehicle>().DamagePassenger();
+            other.transform.root.GetComponent<Script_Vehicle>().DamagePassenger();
+            transform.root.GetComponent<Script_Vehicle>().AddLifeToPassenger(10);
         }
+    }
+
+    IEnumerator WaitforFade()
+    {
+        yield return new WaitForSeconds(0.5f);
+        gameObject.SetActive(false);
     }
 }

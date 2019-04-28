@@ -244,6 +244,8 @@ public class Script_Player : MonoBehaviour
         {
             f_CurrentHealth = 0;
         }
+
+        UpdateHealthUI();
     }
 
     private void UpdateHealthUI()
