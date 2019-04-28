@@ -19358,6 +19358,51 @@ Transform:
   m_Father: {fileID: 1092954396110581309}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2677904207842705087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1546242816649262911}
+  - component: {fileID: 6142653709425512990}
+  m_Layer: 0
+  m_Name: Damage_Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1546242816649262911
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2677904207842705087}
+  m_LocalRotation: {x: -0, y: -0, z: -0.70710576, w: 0.70710784}
+  m_LocalPosition: {x: -0.86438996, y: 2.18853, z: -1.49156}
+  m_LocalScale: {x: 0.1289, y: 2.0912085, z: 0.88516}
+  m_Children: []
+  m_Father: {fileID: 5823993828598489851}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
+--- !u!136 &6142653709425512990
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2677904207842705087}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.52720755
+  m_Height: 1.8365285
+  m_Direction: 1
+  m_Center: {x: 0.027207553, y: 0.39105666, z: 0}
 --- !u!1 &5517059579231532671
 GameObject:
   m_ObjectHideFlags: 0
@@ -19427,6 +19472,7 @@ Transform:
   - {fileID: 802953579426886572}
   - {fileID: 1736445954}
   - {fileID: 1092954396110581309}
+  - {fileID: 1546242816649262911}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19541,9 +19587,11 @@ MonoBehaviour:
   l_transform_switch_target:
   - {fileID: 1021733070509688238}
   - {fileID: 714045782003989245}
-  f_add_heal_per_second: 0
+  f_add_heal_per_second: 3
   f_speed_boost_speed: 3000
   i_team: 0
+  g_AttackCollider: {fileID: 2677904207842705087}
+  f_DamagePassenger: 0
 --- !u!1 &5823993828598201993
 GameObject:
   m_ObjectHideFlags: 0
@@ -20525,15 +20573,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d2586aa9d5124b44bcbb0fff2b81fb5, type: 3}
---- !u!1 &7369626014908160273 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1499462602065691579, guid: 8d2586aa9d5124b44bcbb0fff2b81fb5,
-    type: 3}
-  m_PrefabInstance: {fileID: 8253130653857471146}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &737039568235325075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8697435009362771001, guid: 8d2586aa9d5124b44bcbb0fff2b81fb5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8253130653857471146}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7369626014908160273 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1499462602065691579, guid: 8d2586aa9d5124b44bcbb0fff2b81fb5,
     type: 3}
   m_PrefabInstance: {fileID: 8253130653857471146}
   m_PrefabAsset: {fileID: 0}

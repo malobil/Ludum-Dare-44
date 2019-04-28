@@ -828,32 +828,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5823993828587457311, guid: e1454eab2369be54eaaa6ee1af63a1ac,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1736445953, guid: e1454eab2369be54eaaa6ee1af63a1ac, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 265138519, guid: e1454eab2369be54eaaa6ee1af63a1ac, type: 3}
-      propertyPath: i_player_number
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 265138519, guid: e1454eab2369be54eaaa6ee1af63a1ac, type: 3}
-      propertyPath: m_usingLife_cd
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 265138519, guid: e1454eab2369be54eaaa6ee1af63a1ac, type: 3}
-      propertyPath: m_usingLife
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6626573516976118144, guid: e1454eab2369be54eaaa6ee1af63a1ac,
-        type: 3}
-      propertyPath: f_add_heal_per_second
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1454eab2369be54eaaa6ee1af63a1ac, type: 3}
 --- !u!4 &1508551007 stripped
