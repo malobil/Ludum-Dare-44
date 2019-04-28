@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Script_UIManager : MonoBehaviour
 {
@@ -52,6 +53,16 @@ public class Script_UIManager : MonoBehaviour
         }
     }
 
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("Main_Menu");
+    }
+
     public void StopStart()
     {
         m_StartMenu.SetActive(false);
@@ -70,6 +81,10 @@ public class Script_UIManager : MonoBehaviour
     public void ShowFinish()
     {
         m_endGameMenu.SetActive(true);
+        foreach (Script_Vehicle a in cars)
+        {
+            a.CanMoveFalse();
+        }
     }
 
     public void UnShowFinish()
