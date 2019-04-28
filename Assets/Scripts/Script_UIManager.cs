@@ -10,12 +10,16 @@ public class Script_UIManager : MonoBehaviour
     [Header("UIGame")]
     public GameObject m_pauseMenu;
     public GameObject m_endGameMenu;
+    public GameObject m_StartMenu;
 
     public Text m_LapP1;
     public Text m_LapP2;
     public Text WinText;
 
-    private int P1Lap = 1;
+    public List<Script_Vehicle> cars;
+
+
+    private int P1Lap = 1  ;
     private int P2Lap = 1;
 
     public Image m_P1Life;
@@ -34,6 +38,23 @@ public class Script_UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+    }
+
+    public void Starting()
+    {
+        foreach(Script_Vehicle a in cars)
+        {
+            a.CanMoveTrue();
+        }
+    }
+
+    public void StopStart()
+    {
+        m_StartMenu.SetActive(false);
     }
 
     public void ShowPause()

@@ -16,21 +16,9 @@ ScriptedImporter:
     generateAllOutputs: 0
     generateMipMaps: 1
     preset: " <sbspreset pkgurl=\"pkg://stylizedSwamp\" label=\"\" >\n </sbspreset>\n"
-    shaderName: Standard
-    outputNames: baseColor,normal,metallic,height,ambientOcclusion
-    texturePackingList:
-    - outputName: baseColor
-      alphaSource: baseColor
-    - outputName: normal
-      alphaSource: normal
-    - outputName: roughness
-      alphaSource: roughness
-    - outputName: metallic
-      alphaSource: smoothness
-    - outputName: height
-      alphaSource: height
-    - outputName: ambientOcclusion
-      alphaSource: ambientOcclusion
+    shaderName: Lightweight Render Pipeline/Lit
+    outputNames: baseColor,normal,metallic,ambientOcclusion
+    texturePackingList: []
     textureParameters:
     - textureName: stylizedSwamp - roughness
       wrapMode: 0
@@ -77,5 +65,6 @@ ScriptedImporter:
       textureHeight: 2048
       textureFormat: 0
       bGenerateOnLoad: 1
-    material: {instanceID: 0}
+    material: {fileID: 614145829695553975, guid: 17250a361975270418c4f3b75d67c8a0,
+      type: 3}
     generatedTextures: []
