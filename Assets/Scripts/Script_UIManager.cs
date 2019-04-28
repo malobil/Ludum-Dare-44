@@ -20,8 +20,8 @@ public class Script_UIManager : MonoBehaviour
     public List<Script_Vehicle> cars;
 
 
-    private int P1Lap = 1  ;
-    private int P2Lap = 1;
+    private int P1Lap = 0  ;
+    private int P2Lap = 0;
 
     public Image m_P1Life;
     public Image m_P2Life;
@@ -143,7 +143,7 @@ public class Script_UIManager : MonoBehaviour
                 Script_Audio_Manager.Instance.PlayAudioClip(a_final_lap);
             }
 
-            m_LapP1.text = P1Lap.ToString();
+            m_LapP1.text = P1Lap +1.ToString();
             if (P1Lap >= 3)
             {
                 ShowFinish();
@@ -160,7 +160,7 @@ public class Script_UIManager : MonoBehaviour
                 Script_Audio_Manager.Instance.PlayAudioClip(a_final_lap);
             }
 
-            m_LapP2.text = P2Lap.ToString();
+            m_LapP2.text = P2Lap + 1.ToString();
             if (P2Lap >= 3)
             {
                 ShowFinish();
