@@ -10,6 +10,11 @@ public class Script_MainMenuManager : MonoBehaviour
     public string s_game_scene;
     public GameObject g_play;
 
+    public void Awake()
+    {
+        g_play.SetActive(false);    
+    }
+
     public void Play()
     {
         g_play.SetActive(true);
