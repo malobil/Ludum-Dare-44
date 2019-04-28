@@ -119,6 +119,10 @@ public class Script_Player : MonoBehaviour
                     {
                         UsingHealth();
                     }
+                    else
+                    {
+                        m_vehicle.RemoveSpeedMultiple();
+                    }
                 }
 
                 if (Input.GetAxis("L2_P" + s_player_number) > 0)
@@ -164,6 +168,10 @@ public class Script_Player : MonoBehaviour
                     {
                         UsingHealth();
                         Debug.Log("RT_P" + s_player_number);
+                    }
+                    else
+                    {
+                        m_vehicle.RemoveSpeedMultiple();
                     }
                 }
 
@@ -219,6 +227,10 @@ public class Script_Player : MonoBehaviour
                 transform.root.GetComponent<Script_Vehicle>().AddSpeedMultiple();
                 m_current_usingLife_cd = m_usingLife_cd;
             }
+        }
+        else
+        {
+            m_vehicle.RemoveSpeedMultiple();
         }
 
         UpdateHealthUI();

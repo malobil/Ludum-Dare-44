@@ -19,7 +19,7 @@ public class Script_Vehicle : MonoBehaviour
     private CarController m_Car; // the car controller we want to use
 
     private bool b_can_lap = false;
-    private bool b_can_move = true;
+    private bool b_can_move = false;
 
     [SerializeField] private int i_team = 0;
 
@@ -99,6 +99,11 @@ public class Script_Vehicle : MonoBehaviour
     {
         m_Car.GetComponent<Rigidbody>().AddForce(m_Car.transform.forward * f_speed_boost_speed, ForceMode.Impulse);
         m_Car.ChangeMaxSpeed(f_speed_boost_speed);
+    }
+
+    public void RemoveSpeedMultiple()
+    {
+        m_Car.ComeBackToNormalSpeed() ;
     }
 
     public Script_Player GetCurrentDriver()

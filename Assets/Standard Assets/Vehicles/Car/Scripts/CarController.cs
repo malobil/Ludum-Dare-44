@@ -47,6 +47,8 @@ namespace UnityStandardAssets.Vehicles.Car
         private Rigidbody m_Rigidbody;
         private const float k_ReversingThreshold = 0.01f;
 
+        private float f_basic_speed;
+
         public bool Skidding { get; private set; }
         public float BrakeInput { get; private set; }
         public float CurrentSteerAngle{ get { return m_SteerAngle; }}
@@ -58,6 +60,7 @@ namespace UnityStandardAssets.Vehicles.Car
         // Use this for initialization
         private void Start()
         {
+            f_basic_speed = m_Topspeed;
             m_WheelMeshLocalRotations = new Quaternion[4];
             for (int i = 0; i < 4; i++)
             {
@@ -74,6 +77,11 @@ namespace UnityStandardAssets.Vehicles.Car
         public void ChangeMaxSpeed(float f_max_speed)
         {
             m_Topspeed += f_max_speed;
+        }
+
+        public void ComeBackToNormalSpeed()
+        {
+            m_Topspeed = f_basic_speed;
         }
 
         private void GearChanging()
