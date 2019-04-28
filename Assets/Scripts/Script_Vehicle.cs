@@ -19,7 +19,7 @@ public class Script_Vehicle : MonoBehaviour
     private CarController m_Car; // the car controller we want to use
 
     private bool b_can_lap = false;
-    private bool b_can_move = true;
+    private bool b_can_move = false;
 
     [SerializeField] private int i_team = 0;
 
