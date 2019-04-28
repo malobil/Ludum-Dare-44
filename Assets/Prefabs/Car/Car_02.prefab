@@ -11326,6 +11326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad6d1936e0e694542add2fa912404377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  a_take_damage: {fileID: 0}
 --- !u!1 &6497312165253715755
 GameObject:
   m_ObjectHideFlags: 0
@@ -39751,6 +39752,7 @@ MonoBehaviour:
   i_player_number: 4
   m_setTimer: 3
   m_isDriver: 0
+  a_hey_switch: {fileID: 8300000, guid: a9a5339e0e8b4e44e9903cc8a435e96d, type: 3}
 --- !u!1 &8971237947151281446
 GameObject:
   m_ObjectHideFlags: 0
@@ -39879,6 +39881,7 @@ MonoBehaviour:
   i_player_number: 3
   m_setTimer: 3
   m_isDriver: 0
+  a_hey_switch: {fileID: 8300000, guid: a9a5339e0e8b4e44e9903cc8a435e96d, type: 3}
 --- !u!1 &8971237947749695323
 GameObject:
   m_ObjectHideFlags: 0

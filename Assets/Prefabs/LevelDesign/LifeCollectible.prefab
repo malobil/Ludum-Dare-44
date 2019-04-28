@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AmmountOfHeal: 20
+  a_boost_power: {fileID: 8300000, guid: 0d853a1a2c85c2444be965d2e77940fa, type: 3}
 --- !u!114 &2177572739273984709
 MonoBehaviour:
   m_ObjectHideFlags: 0

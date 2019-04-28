@@ -20,13 +20,19 @@ public class Script_UIManager : MonoBehaviour
     public List<Script_Vehicle> cars;
 
 
-    private int P1Lap = 0  ;
-    private int P2Lap = 0;
+    private int P1Lap = 1  ;
+    private int P2Lap = 1;
 
     public Image m_P1Life;
     public Image m_P2Life;
     public Image m_P3Life;
     public Image m_P4Life;
+
+    [Header ("Sounds")]
+
+    private AudioSource a_audio_source;
+    public AudioClip a_finish;
+    public AudioClip a_final_lap;
 
 
     private void Awake()
@@ -43,12 +49,14 @@ public class Script_UIManager : MonoBehaviour
 
     private void Start()
     {
+        a_audio_source = GetComponent<AudioSource>();
     }
 
     public void Starting()
     {
         foreach(Script_Vehicle a in cars)
         {
+            a_audio_source.Play();
             a.CanMoveTrue();
         }
     }
@@ -80,6 +88,7 @@ public class Script_UIManager : MonoBehaviour
 
     public void ShowFinish()
     {
+        Script_Audio_Manager.Instance.PlayAudioClip(a_finish);
         m_endGameMenu.SetActive(true);
         foreach (Script_Vehicle a in cars)
         {
@@ -119,7 +128,12 @@ public class Script_UIManager : MonoBehaviour
         {
             P1Lap++;
 
-            m_LapP1.text = P1Lap + 1.ToString();
+            if(P1Lap == 2)
+            {
+                Script_Audio_Manager.Instance.PlayAudioClip(a_final_lap);
+            }
+
+            m_LapP1.text = P1Lap.ToString();
             if (P1Lap >= 3)
             {
                 ShowFinish();
@@ -131,7 +145,12 @@ public class Script_UIManager : MonoBehaviour
         {
             P2Lap++;
 
-            m_LapP2.text = P2Lap + 1.ToString();
+            if (P2Lap == 2)
+            {
+                Script_Audio_Manager.Instance.PlayAudioClip(a_final_lap);
+            }
+
+            m_LapP2.text = P2Lap.ToString();
             if (P2Lap >= 3)
             {
                 ShowFinish();
