@@ -41,6 +41,8 @@ public class Script_Player : MonoBehaviour
     private float turn = 0f;
     private float drift = 0f;
 
+    bool b_Attack_Cooldown = true;
+
     void Start()
     {
         m_vehicle = transform.root.GetComponent<Script_Vehicle>();
@@ -105,7 +107,12 @@ public class Script_Player : MonoBehaviour
 
                 if (Input.GetButtonDown("Square_P" + s_player_number))
                 {
-                    m_vehicle.Attack();
+                    if (m_vehicle.GetCurrentPassenger() == this && b_Attack_Cooldown)
+                    {
+                        m_vehicle.Attack();
+                        b_Attack_Cooldown = false;
+                        StartCoroutine("WaitforAttack");
+                    }
                 }
 
                 if (Input.GetButtonDown("R1_P" + s_player_number))
@@ -188,7 +195,12 @@ public class Script_Player : MonoBehaviour
 
                 if (Input.GetButtonDown("X_P" + s_player_number))
                 {
-                    m_vehicle.Attack();
+                    if (m_vehicle.GetCurrentPassenger() == this && b_Attack_Cooldown)
+                    {
+                        m_vehicle.Attack();
+                        b_Attack_Cooldown = false;
+                        StartCoroutine("WaitforAttack");
+                    }
                 }
 
                 if (Input.GetAxis("Horizontal_P" + s_player_number) > 0)
@@ -299,5 +311,9 @@ public class Script_Player : MonoBehaviour
         return new Vector3(acceleration, turn, drift);
     }
 
-
+    IEnumerator WaitforAttack()
+    {
+        yield return new WaitForSeconds(2.5f);
+        b_Attack_Cooldown = true;
+    }
 }

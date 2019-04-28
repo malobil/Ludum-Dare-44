@@ -24,10 +24,4 @@ public class Script_DamageCollider : MonoBehaviour
             transform.root.GetComponent<Script_Vehicle>().AddLifeToPassenger(10);
         }
     }
-
-    IEnumerator WaitforFade()
-    {
-        yield return new WaitForSeconds(0.5f);
-        gameObject.SetActive(false);
-    }
 }
