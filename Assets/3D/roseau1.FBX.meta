@@ -3,17 +3,7 @@ guid: 1ed5600ef089aa34c8e8c738ad26389c
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: feuille
-    second: {fileID: 2100000, guid: 735c51aa22d50114a81f0456ea7eaa5d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: roseau
-    second: {fileID: 2100000, guid: 9204956e0a070a547b5867913015dbe9, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
