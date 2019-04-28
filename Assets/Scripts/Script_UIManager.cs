@@ -40,7 +40,7 @@ public class Script_UIManager : MonoBehaviour
     public GameObject g_player_2;
     public GameObject g_THOMAS;
 
-    public List<Transform> l_spawn_point;
+    public Transform spawn_point;
 
 
     private void Awake()
@@ -57,7 +57,7 @@ public class Script_UIManager : MonoBehaviour
 
     private void Start()
     {
-        Instantiate(g_player_1, l_spawn_point[0]);
+        Instantiate(g_player_1, spawn_point);
 
         a_audio_source = GetComponent<AudioSource>();
     }
