@@ -76,14 +76,14 @@ public class Script_UIManager : MonoBehaviour
     {
         foreach(Script_Vehicle a in cars)
         {
-            a_audio_source.Play();
             a.CanMoveTrue();
+            //a_audio_source.Play();
         }
     }
 
     public void Retry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
+        SceneManager.LoadScene("Level_01");
     }
 
     public void Menu()
