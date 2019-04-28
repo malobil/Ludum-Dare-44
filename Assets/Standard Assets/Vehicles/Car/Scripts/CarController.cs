@@ -76,7 +76,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
         public void ChangeMaxSpeed(float f_max_speed)
         {
-            m_Topspeed += f_max_speed;
+            m_Topspeed = f_max_speed;
         }
 
         public void ComeBackToNormalSpeed()

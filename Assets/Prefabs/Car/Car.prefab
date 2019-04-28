@@ -29138,6 +29138,7 @@ MonoBehaviour:
   - {fileID: 714045782003989245}
   f_add_heal_per_second: 3
   f_speed_boost_speed: 500
+  b_can_move: 1
   i_team: 0
   g_AttackCollider: {fileID: 2677904207842705087}
   f_DamagePassenger: 10
