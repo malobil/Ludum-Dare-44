@@ -44,6 +44,8 @@ public class Script_UIManager : MonoBehaviour
 
     private void Awake()
     {
+        a_audio_source = GetComponent<AudioSource>();
+
         if (Instance == null)
         {
             Instance = this;
@@ -62,14 +64,10 @@ public class Script_UIManager : MonoBehaviour
         {
             Instantiate(g_player_1, spawn_point);
         }
-
-        if(i_spawn > 8)
+        else if(i_spawn > 8)
         {
             Instantiate(g_THOMAS, spawn_point);
         }
-        
-
-        a_audio_source = GetComponent<AudioSource>();
     }
 
     public void Starting()
@@ -77,8 +75,8 @@ public class Script_UIManager : MonoBehaviour
         foreach(Script_Vehicle a in cars)
         {
             a.CanMoveTrue();
-            //a_audio_source.Play();
         }
+        a_audio_source.Play();
     }
 
     public void Retry()
