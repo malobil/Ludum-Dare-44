@@ -34,6 +34,14 @@ public class Script_UIManager : MonoBehaviour
     public AudioClip a_finish;
     public AudioClip a_final_lap;
 
+    [Header("Start")]
+
+    public GameObject g_player_1;
+    public GameObject g_player_2;
+    public GameObject g_THOMAS;
+
+    public List<Transform> l_spawn_point;
+
 
     private void Awake()
     {
@@ -49,6 +57,8 @@ public class Script_UIManager : MonoBehaviour
 
     private void Start()
     {
+        Instantiate(g_player_1, l_spawn_point[0]);
+
         a_audio_source = GetComponent<AudioSource>();
     }
 

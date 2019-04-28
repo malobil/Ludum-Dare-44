@@ -8,9 +8,11 @@ public class Script_MainMenuManager : MonoBehaviour
     [Header("SceneManager")]
 
     public string s_game_scene;
+    public GameObject g_play;
 
     public void Play()
     {
+        g_play.SetActive(true);
         SceneManager.LoadScene(s_game_scene);
     }
 
