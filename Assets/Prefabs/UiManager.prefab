@@ -1566,6 +1566,8 @@ MonoBehaviour:
   m_P2Life: {fileID: 5358963784669741708}
   m_P3Life: {fileID: 5358963783770244163}
   m_P4Life: {fileID: 5358963785194014582}
+  a_finish: {fileID: 8300000, guid: 4f8e58485378c77459b189dff99f9503, type: 3}
+  a_final_lap: {fileID: 8300000, guid: 66e853c92c777714b815bf330dc2ebb5, type: 3}
 --- !u!95 &1267978322
 Animator:
   serializedVersion: 3
