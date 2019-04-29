@@ -12,7 +12,7 @@ public class Script_LifeCollectibles : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Script_Audio_Manager.Instance.PlayAudioClip(a_boost_power);
-            other.transform.root.GetComponent<Script_Vehicle>().AddLifeTodriver(m_AmmountOfHeal);
+            other.transform.GetComponentInParent<Script_Vehicle>().AddLifeTodriver(m_AmmountOfHeal);
             transform.GetComponentInParent<Script_LifeCollectibles_Spawn>().ResetCD();
             Destroy(gameObject);
         }

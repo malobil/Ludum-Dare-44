@@ -97307,6 +97307,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1563592188, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2, type: 3}
+      propertyPath: cars.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563592188, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2, type: 3}
       propertyPath: cars.Array.data[1]
       value: 
       objectReference: {fileID: 568077727}
@@ -97314,6 +97318,10 @@ PrefabInstance:
       propertyPath: spawn_point
       value: 
       objectReference: {fileID: 1316837371}
+    - target: {fileID: 1563592188, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2, type: 3}
+      propertyPath: cars.Array.data[0]
+      value: 
+      objectReference: {fileID: 568077727}
     - target: {fileID: 5358963783500788077, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2,
         type: 3}
       propertyPath: m_FontData.m_FontSize

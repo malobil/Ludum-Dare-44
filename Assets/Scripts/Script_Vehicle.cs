@@ -28,7 +28,7 @@ public class Script_Vehicle : MonoBehaviour
 
     void Start()
     {
-        m_Car = transform.root.GetComponent<CarController>();
+        m_Car = GetComponent<CarController>();
         int i = Random.Range(0, 2);
         if (i == 0)
         {

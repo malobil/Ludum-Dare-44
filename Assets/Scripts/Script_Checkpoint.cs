@@ -10,7 +10,7 @@ public class Script_Checkpoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Check OK");
-            other.transform.root.GetComponent<Script_Vehicle>().CanLapTrue();
+            other.transform.GetComponentInParent<Script_Vehicle>().CanLapTrue();
         }
     }
 }

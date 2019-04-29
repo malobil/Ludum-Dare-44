@@ -61,12 +61,14 @@ public class Script_UIManager : MonoBehaviour
 
         if(i_spawn <= 8)
         {
-            Instantiate(g_player_1, spawn_point);
+            GameObject a = Instantiate(g_player_1, spawn_point);
+            cars.Add(a.GetComponentInChildren<Script_Vehicle>());
             a_audio_source.Play();
         }
         else if(i_spawn > 8)
         {
-            Instantiate(g_THOMAS, spawn_point);
+            GameObject b = Instantiate(g_THOMAS, spawn_point);
+            cars.Add(b.GetComponentInChildren<Script_Vehicle>());
         }
     }
 
@@ -184,4 +186,5 @@ public class Script_UIManager : MonoBehaviour
             
         }
     }
+
 }

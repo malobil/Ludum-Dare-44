@@ -46,7 +46,7 @@ public class Script_Player : MonoBehaviour
 
     void Start()
     {
-        m_vehicle = transform.root.GetComponent<Script_Vehicle>();
+        m_vehicle = transform.GetComponentInParent<Script_Vehicle>();
 
         if (Input.GetJoystickNames().Length > i_player_number - 1)
         {
@@ -221,7 +221,7 @@ public class Script_Player : MonoBehaviour
     {
         f_switch_current_timer = m_setTimer;
         b_want_to_switch = true;
-        transform.root.GetComponent<Script_Vehicle>().VerifySwitchState();
+        transform.GetComponentInParent<Script_Vehicle>().VerifySwitchState();
         Script_Audio_Manager.Instance.PlayAudioClip(a_hey_switch);
         Debug.Log("I one two switch");
     }
@@ -238,7 +238,7 @@ public class Script_Player : MonoBehaviour
             if (m_current_usingLife_cd <= 0)
             {
                 f_CurrentHealth -= m_usingLife;
-                transform.root.GetComponent<Script_Vehicle>().AddSpeedMultiple();
+                transform.GetComponentInParent<Script_Vehicle>().AddSpeedMultiple();
                 m_current_usingLife_cd = m_usingLife_cd;
             }
         }
