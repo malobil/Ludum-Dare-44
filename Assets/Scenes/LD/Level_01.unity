@@ -97307,36 +97307,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1563592188, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2, type: 3}
-      propertyPath: cars.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1563592188, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2, type: 3}
       propertyPath: cars.Array.data[1]
       value: 
       objectReference: {fileID: 568077727}
     - target: {fileID: 1563592188, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2, type: 3}
-      propertyPath: g_player_1
-      value: 
-      objectReference: {fileID: 6101253166685727253, guid: ff45389255dc5c64e8512c4c406e3725,
-        type: 3}
-    - target: {fileID: 1563592188, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2, type: 3}
-      propertyPath: g_THOMAS
-      value: 
-      objectReference: {fileID: 4973436302646604638, guid: bf26d03c004a88e4ab8e946cf0370de1,
-        type: 3}
-    - target: {fileID: 1563592188, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2, type: 3}
       propertyPath: spawn_point
       value: 
       objectReference: {fileID: 1316837371}
-    - target: {fileID: 3328972032201936998, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 388244454, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2, type: 3}
-      propertyPath: m_FirstSelected
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2, type: 3}
 --- !u!224 &1982625144779079763 stripped

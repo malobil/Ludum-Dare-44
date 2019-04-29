@@ -19,7 +19,6 @@ public class Script_UIManager : MonoBehaviour
 
     public List<Script_Vehicle> cars;
 
-
     private int P1Lap = 1  ;
     private int P2Lap = 1;
 
@@ -63,6 +62,7 @@ public class Script_UIManager : MonoBehaviour
         if(i_spawn <= 8)
         {
             Instantiate(g_player_1, spawn_point);
+            a_audio_source.Play();
         }
         else if(i_spawn > 8)
         {
@@ -72,11 +72,10 @@ public class Script_UIManager : MonoBehaviour
 
     public void Starting()
     {
-        foreach(Script_Vehicle a in cars)
+        foreach (Script_Vehicle a in cars)
         {
             a.CanMoveTrue();
         }
-        a_audio_source.Play();
     }
 
     public void Retry()
