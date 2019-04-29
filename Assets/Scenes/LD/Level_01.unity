@@ -97314,6 +97314,36 @@ PrefabInstance:
       propertyPath: spawn_point
       value: 
       objectReference: {fileID: 1316837371}
+    - target: {fileID: 5358963783500788077, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358963783606100489, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358963784424555966, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358963784771016878, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358963783500788082, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358963783606100494, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 43
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21c5f4b4dbdd76b41bebdd7f8af1f4c2, type: 3}
 --- !u!224 &1982625144779079763 stripped
